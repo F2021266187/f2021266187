@@ -1,0 +1,31 @@
+{% extends "portfolio/base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="text-center wow animate__animated animate__fadeInUp">Contact Us</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form action="{% url 'contact' %}" method="post" class="wow animate__animated animate__fadeInUp">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_name">Name</label>
+                        <input type="text" name="name" class="form-control" id="id_name" >
+                    </div>
+                    <div class="form-group">
+                        <label for="id_email">Email</label>
+                        <input type="email" name="email" class="form-control" id="id_email" >
+                    </div>
+                    <div class="form-group">
+                        <label for="id_message">Message</label>
+                        <textarea name="message" class="form-control" id="id_message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
